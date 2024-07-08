@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Management System</title>
+
+    <!-- ^ bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- ^ my css style -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-dark">
+    <main>
+
+        <div class="container py-5">
+            <div class="header d-flex justify-content-center text-white ">
+                <h1 class=" xx my-5  ">
+                    Product Management System
+                </h1>
+            </div>
+            <div class="inputes-form w-75 mx-auto">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="productName" oninput="validateInput(this)"
+                        placeholder="product name">
+                    <div class="alert alert-danger p-1 mt-2 d-none">
+                        <small>The product name should be 6 to 9 characters long and begin with a capital letter
+                        </small>
+                    </div>
+                    <label for="productName" class="text-capitalize">Product Name</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="productPrice" oninput="validateInput(this)"
+                        placeholder="product Price">
+                    <div class="alert alert-danger p-1 mt-2 d-none">
+                        <small>product price should be greater than 9 and not exceed 100 </small>
+                    </div>
+                    <label for="productPrice" class="text-capitalize">Product Price</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input list="categories" type="text" class="form-control" id="productCategory"
+                        oninput="validateInput(this)" placeholder="product category">
+                    <div class="alert alert-danger p-1 mt-2 d-none">
+                        <small>product category should be one of the given options </small>
+                    </div>
+                    <label for="productCategory" class="text-capitalize">Product Category</label>
+                    <datalist id="categories">
+                        <option value="TV" />
+                        <option value="Mobile" />
+                        <option value="Labtops" />
+                        <option value="Screens" />
+                        <option value="Others" />
+                    </datalist>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="productDesc" oninput="validateInput(this)"
+                        placeholder="product Desc"></textarea>
+                    <div class="alert alert-danger p-1 mt-2 d-none">
+                        <small>product description should be consists of 10 characters at least </small>
+                    </div>
+                    <label for="productDesc" class="text-capitalize">product Description</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="file" class="form-control" id="productImage" oninput="validateInput(this)"
+                        placeholder="product image">
+                    <label for="productImage" class="text-capitalize">product Image</label>
+                </div>
+                
+
+                <button class="btn btn-primary" id="add" onclick="addProduct(this)"> Add Product</button>
+                <div class="alert alert-danger p-1 mt-2 d-none">
+                    <small> All inputs should be valid </small>
+                </div>
+                <button class="btn btn-primary d-none" id="update" onclick="updateProduct(this)"> Update
+                    Product</button>
+                <div class="alert alert-danger p-1 mt-2 d-none">
+                    <small> All inputs should be valid </small>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container py-5 w-75">
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" oninput="searchProduct(this.value)" id="search"
+                    placeholder="Search">
+                <label for="search" class="text-capitalize">Search...</label>
+            </div>
+
+            <div class="row gy-4" id="myData">
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

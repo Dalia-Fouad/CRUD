@@ -1,0 +1,5 @@
+.item img{
+    height: 200px;
+    object-fit: contain;
+    background-color: white;
+}
